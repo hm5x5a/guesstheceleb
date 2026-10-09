@@ -2,232 +2,746 @@
   {
     "name": "Lionel Messi",
     "wiki": "Lionel_Messi",
-    "aliases": ["Messi", "Leo Messi"],
-    "modes": ["hair", "beard", "nose", "eyes"],
+    "aliases": [
+      "Messi",
+      "Leo Messi"
+    ],
+    "modes": [
+      "hair",
+      "beard",
+      "nose",
+      "eyes"
+    ],
     "crop": {
-      "hair": [0.22, 0.04, 0.56, 0.14],
-      "eyes": [0.24, 0.17, 0.52, 0.08],
-      "nose": [0.35, 0.23, 0.30, 0.09],
-      "beard": [0.24, 0.29, 0.52, 0.15]
-    }
+      "hair": [
+        0.22,
+        0.04,
+        0.56,
+        0.14
+      ],
+      "eyes": [
+        0.24,
+        0.17,
+        0.52,
+        0.08
+      ],
+      "nose": [
+        0.35,
+        0.23,
+        0.3,
+        0.09
+      ],
+      "beard": [
+        0.24,
+        0.29,
+        0.52,
+        0.15
+      ]
+    },
+    "image": "/puzzles/lionel_messi.webp"
   },
   {
     "name": "Kanye West",
     "wiki": "Kanye_West",
-    "aliases": ["Ye", "Kanye"],
-    "modes": ["hair", "beard", "nose", "eyes"],
+    "aliases": [
+      "Ye",
+      "Kanye"
+    ],
+    "modes": [
+      "hair",
+      "beard",
+      "nose",
+      "eyes"
+    ],
     "crop": {
-      "hair": [0.20, 0.03, 0.60, 0.15],
-      "eyes": [0.22, 0.18, 0.56, 0.08],
-      "nose": [0.33, 0.24, 0.34, 0.09],
-      "beard": [0.22, 0.31, 0.56, 0.16]
-    }
+      "hair": [
+        0.2,
+        0.03,
+        0.6,
+        0.15
+      ],
+      "eyes": [
+        0.22,
+        0.18,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.33,
+        0.24,
+        0.34,
+        0.09
+      ],
+      "beard": [
+        0.22,
+        0.31,
+        0.56,
+        0.16
+      ]
+    },
+    "image": "/puzzles/kanye_west.webp"
   },
   {
     "name": "Billie Eilish",
     "wiki": "Billie_Eilish",
-    "aliases": ["Billie"],
-    "modes": ["hair", "nose", "eyes"],
+    "aliases": [
+      "Billie"
+    ],
+    "modes": [
+      "hair",
+      "nose",
+      "eyes"
+    ],
     "crop": {
-      "hair": [0.12, 0.04, 0.76, 0.20],
-      "eyes": [0.20, 0.24, 0.60, 0.09],
-      "nose": [0.34, 0.31, 0.32, 0.10]
-    }
+      "hair": [
+        0.12,
+        0.04,
+        0.76,
+        0.2
+      ],
+      "eyes": [
+        0.2,
+        0.24,
+        0.6,
+        0.09
+      ],
+      "nose": [
+        0.34,
+        0.31,
+        0.32,
+        0.1
+      ]
+    },
+    "image": "/puzzles/billie_eilish.webp"
   },
   {
     "name": "Drake",
     "wiki": "Drake_(musician)",
-    "aliases": ["Aubrey Graham", "Champagne Papi"],
-    "modes": ["hair", "beard", "nose", "eyes"],
+    "aliases": [
+      "Aubrey Graham",
+      "Champagne Papi"
+    ],
+    "modes": [
+      "hair",
+      "beard",
+      "nose",
+      "eyes"
+    ],
     "crop": {
-      "hair": [0.20, 0.04, 0.60, 0.14],
-      "eyes": [0.22, 0.18, 0.56, 0.08],
-      "nose": [0.34, 0.24, 0.32, 0.09],
-      "beard": [0.22, 0.31, 0.56, 0.16]
-    }
+      "hair": [
+        0.2,
+        0.04,
+        0.6,
+        0.14
+      ],
+      "eyes": [
+        0.22,
+        0.18,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.34,
+        0.24,
+        0.32,
+        0.09
+      ],
+      "beard": [
+        0.22,
+        0.31,
+        0.56,
+        0.16
+      ]
+    },
+    "image": "/puzzles/drake_musician.webp"
   },
   {
     "name": "Snoop Dogg",
     "wiki": "Snoop_Dogg",
-    "aliases": ["Snoop", "Calvin Broadus"],
-    "modes": ["hair", "beard", "eyes", "nose"],
+    "aliases": [
+      "Snoop",
+      "Calvin Broadus"
+    ],
+    "modes": [
+      "hair",
+      "beard",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.15, 0.02, 0.70, 0.20],
-      "eyes": [0.20, 0.22, 0.60, 0.09],
-      "nose": [0.34, 0.29, 0.32, 0.10],
-      "beard": [0.28, 0.38, 0.44, 0.16]
-    }
+      "hair": [
+        0.15,
+        0.02,
+        0.7,
+        0.2
+      ],
+      "eyes": [
+        0.2,
+        0.22,
+        0.6,
+        0.09
+      ],
+      "nose": [
+        0.34,
+        0.29,
+        0.32,
+        0.1
+      ],
+      "beard": [
+        0.28,
+        0.38,
+        0.44,
+        0.16
+      ]
+    },
+    "image": "/puzzles/snoop_dogg.webp"
   },
   {
     "name": "Zendaya",
     "wiki": "Zendaya",
-    "aliases": ["Zendaya Coleman"],
-    "modes": ["hair", "eyes", "nose"],
+    "aliases": [
+      "Zendaya Coleman"
+    ],
+    "modes": [
+      "hair",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.12, 0.03, 0.76, 0.18],
-      "eyes": [0.22, 0.21, 0.56, 0.08],
-      "nose": [0.35, 0.28, 0.30, 0.09]
-    }
+      "hair": [
+        0.12,
+        0.03,
+        0.76,
+        0.18
+      ],
+      "eyes": [
+        0.22,
+        0.21,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.35,
+        0.28,
+        0.3,
+        0.09
+      ]
+    },
+    "image": "/puzzles/zendaya.webp"
   },
   {
     "name": "Cristiano Ronaldo",
     "wiki": "Cristiano_Ronaldo",
-    "aliases": ["Ronaldo", "CR7"],
-    "modes": ["hair", "eyes", "nose"],
+    "aliases": [
+      "Ronaldo",
+      "CR7"
+    ],
+    "modes": [
+      "hair",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.22, 0.03, 0.56, 0.15],
-      "eyes": [0.24, 0.17, 0.52, 0.08],
-      "nose": [0.34, 0.23, 0.32, 0.09]
-    }
+      "hair": [
+        0.22,
+        0.03,
+        0.56,
+        0.15
+      ],
+      "eyes": [
+        0.24,
+        0.17,
+        0.52,
+        0.08
+      ],
+      "nose": [
+        0.34,
+        0.23,
+        0.32,
+        0.09
+      ]
+    },
+    "image": "/puzzles/cristiano_ronaldo.webp"
   },
   {
     "name": "LeBron James",
     "wiki": "LeBron_James",
-    "aliases": ["King James", "LeBron"],
-    "modes": ["hair", "beard", "eyes", "nose"],
+    "aliases": [
+      "King James",
+      "LeBron"
+    ],
+    "modes": [
+      "hair",
+      "beard",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.22, 0.02, 0.56, 0.13],
-      "eyes": [0.22, 0.16, 0.56, 0.08],
-      "nose": [0.33, 0.23, 0.34, 0.09],
-      "beard": [0.20, 0.30, 0.60, 0.18]
-    }
+      "hair": [
+        0.22,
+        0.02,
+        0.56,
+        0.13
+      ],
+      "eyes": [
+        0.22,
+        0.16,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.33,
+        0.23,
+        0.34,
+        0.09
+      ],
+      "beard": [
+        0.2,
+        0.3,
+        0.6,
+        0.18
+      ]
+    },
+    "image": "/puzzles/lebron_james.webp"
   },
   {
     "name": "Pedro Pascal",
     "wiki": "Pedro_Pascal",
-    "aliases": ["Pedro"],
-    "modes": ["hair", "beard", "eyes", "nose"],
+    "aliases": [
+      "Pedro"
+    ],
+    "modes": [
+      "hair",
+      "beard",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.20, 0.04, 0.60, 0.14],
-      "eyes": [0.22, 0.18, 0.56, 0.08],
-      "nose": [0.34, 0.24, 0.32, 0.09],
-      "beard": [0.24, 0.31, 0.52, 0.15]
-    }
+      "hair": [
+        0.2,
+        0.04,
+        0.6,
+        0.14
+      ],
+      "eyes": [
+        0.22,
+        0.18,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.34,
+        0.24,
+        0.32,
+        0.09
+      ],
+      "beard": [
+        0.24,
+        0.31,
+        0.52,
+        0.15
+      ]
+    },
+    "image": "/puzzles/pedro_pascal.webp"
   },
   {
     "name": "Cillian Murphy",
     "wiki": "Cillian_Murphy",
-    "aliases": ["Cillian"],
-    "modes": ["hair", "eyes", "nose"],
+    "aliases": [
+      "Cillian"
+    ],
+    "modes": [
+      "hair",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.20, 0.03, 0.60, 0.16],
-      "eyes": [0.20, 0.19, 0.60, 0.08],
-      "nose": [0.33, 0.25, 0.34, 0.09]
-    }
+      "hair": [
+        0.2,
+        0.03,
+        0.6,
+        0.16
+      ],
+      "eyes": [
+        0.2,
+        0.19,
+        0.6,
+        0.08
+      ],
+      "nose": [
+        0.33,
+        0.25,
+        0.34,
+        0.09
+      ]
+    },
+    "image": "/puzzles/cillian_murphy.webp"
   },
   {
     "name": "Post Malone",
     "wiki": "Post_Malone",
-    "aliases": ["Austin Post"],
-    "modes": ["hair", "beard", "eyes", "nose"],
+    "aliases": [
+      "Austin Post"
+    ],
+    "modes": [
+      "hair",
+      "beard",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.15, 0.02, 0.70, 0.18],
-      "eyes": [0.22, 0.20, 0.56, 0.08],
-      "nose": [0.34, 0.27, 0.32, 0.09],
-      "beard": [0.20, 0.34, 0.60, 0.18]
-    }
+      "hair": [
+        0.15,
+        0.02,
+        0.7,
+        0.18
+      ],
+      "eyes": [
+        0.22,
+        0.2,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.34,
+        0.27,
+        0.32,
+        0.09
+      ],
+      "beard": [
+        0.2,
+        0.34,
+        0.6,
+        0.18
+      ]
+    },
+    "image": "/puzzles/post_malone.webp"
   },
   {
     "name": "Dwayne Johnson",
     "wiki": "Dwayne_Johnson",
-    "aliases": ["The Rock"],
-    "modes": ["hair", "eyes", "nose"],
+    "aliases": [
+      "The Rock"
+    ],
+    "modes": [
+      "hair",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.22, 0.02, 0.56, 0.14],
-      "eyes": [0.22, 0.17, 0.56, 0.08],
-      "nose": [0.33, 0.24, 0.34, 0.09]
-    }
+      "hair": [
+        0.22,
+        0.02,
+        0.56,
+        0.14
+      ],
+      "eyes": [
+        0.22,
+        0.17,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.33,
+        0.24,
+        0.34,
+        0.09
+      ]
+    },
+    "image": "/puzzles/dwayne_johnson.webp"
   },
   {
     "name": "Travis Scott",
     "wiki": "Travis_Scott",
-    "aliases": ["Jacques Webster", "La Flame"],
-    "modes": ["hair", "beard", "eyes", "nose"],
+    "aliases": [
+      "Jacques Webster",
+      "La Flame"
+    ],
+    "modes": [
+      "hair",
+      "beard",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.15, 0.02, 0.70, 0.20],
-      "eyes": [0.22, 0.21, 0.56, 0.08],
-      "nose": [0.34, 0.28, 0.32, 0.09],
-      "beard": [0.26, 0.35, 0.48, 0.15]
-    }
+      "hair": [
+        0.15,
+        0.02,
+        0.7,
+        0.2
+      ],
+      "eyes": [
+        0.22,
+        0.21,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.34,
+        0.28,
+        0.32,
+        0.09
+      ],
+      "beard": [
+        0.26,
+        0.35,
+        0.48,
+        0.15
+      ]
+    },
+    "image": "/puzzles/travis_scott.webp"
   },
   {
     "name": "Ariana Grande",
     "wiki": "Ariana_Grande",
-    "aliases": ["Ariana"],
-    "modes": ["hair", "eyes", "nose"],
+    "aliases": [
+      "Ariana"
+    ],
+    "modes": [
+      "hair",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.14, 0.02, 0.72, 0.18],
-      "eyes": [0.22, 0.20, 0.56, 0.08],
-      "nose": [0.34, 0.27, 0.32, 0.09]
-    }
+      "hair": [
+        0.14,
+        0.02,
+        0.72,
+        0.18
+      ],
+      "eyes": [
+        0.22,
+        0.2,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.34,
+        0.27,
+        0.32,
+        0.09
+      ]
+    },
+    "image": "/puzzles/ariana_grande.webp"
   },
   {
     "name": "Keanu Reeves",
     "wiki": "Keanu_Reeves",
-    "aliases": ["Keanu"],
-    "modes": ["hair", "beard", "eyes", "nose"],
+    "aliases": [
+      "Keanu"
+    ],
+    "modes": [
+      "hair",
+      "beard",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.18, 0.03, 0.64, 0.18],
-      "eyes": [0.22, 0.20, 0.56, 0.08],
-      "nose": [0.34, 0.27, 0.32, 0.09],
-      "beard": [0.22, 0.34, 0.56, 0.16]
-    }
+      "hair": [
+        0.18,
+        0.03,
+        0.64,
+        0.18
+      ],
+      "eyes": [
+        0.22,
+        0.2,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.34,
+        0.27,
+        0.32,
+        0.09
+      ],
+      "beard": [
+        0.22,
+        0.34,
+        0.56,
+        0.16
+      ]
+    },
+    "image": "/puzzles/keanu_reeves.webp"
   },
   {
     "name": "Rihanna",
     "wiki": "Rihanna",
-    "aliases": ["Robyn Fenty"],
-    "modes": ["hair", "eyes", "nose"],
+    "aliases": [
+      "Robyn Fenty"
+    ],
+    "modes": [
+      "hair",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.15, 0.03, 0.70, 0.18],
-      "eyes": [0.22, 0.20, 0.56, 0.08],
-      "nose": [0.34, 0.27, 0.32, 0.09]
-    }
+      "hair": [
+        0.15,
+        0.03,
+        0.7,
+        0.18
+      ],
+      "eyes": [
+        0.22,
+        0.2,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.34,
+        0.27,
+        0.32,
+        0.09
+      ]
+    },
+    "image": "/puzzles/rihanna.webp"
   },
   {
     "name": "Taylor Swift",
     "wiki": "Taylor_Swift",
-    "aliases": ["Taylor"],
-    "modes": ["hair", "eyes", "nose"],
+    "aliases": [
+      "Taylor"
+    ],
+    "modes": [
+      "hair",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.14, 0.03, 0.72, 0.18],
-      "eyes": [0.22, 0.20, 0.56, 0.08],
-      "nose": [0.34, 0.27, 0.32, 0.09]
-    }
+      "hair": [
+        0.14,
+        0.03,
+        0.72,
+        0.18
+      ],
+      "eyes": [
+        0.22,
+        0.2,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.34,
+        0.27,
+        0.32,
+        0.09
+      ]
+    },
+    "image": "/puzzles/taylor_swift.webp"
   },
   {
     "name": "The Weeknd",
     "wiki": "The_Weeknd",
-    "aliases": ["Abel Tesfaye", "Abel"],
-    "modes": ["hair", "beard", "eyes", "nose"],
+    "aliases": [
+      "Abel Tesfaye",
+      "Abel"
+    ],
+    "modes": [
+      "hair",
+      "beard",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.15, 0.03, 0.70, 0.19],
-      "eyes": [0.22, 0.21, 0.56, 0.08],
-      "nose": [0.34, 0.28, 0.32, 0.09],
-      "beard": [0.22, 0.35, 0.56, 0.16]
-    }
+      "hair": [
+        0.15,
+        0.03,
+        0.7,
+        0.19
+      ],
+      "eyes": [
+        0.22,
+        0.21,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.34,
+        0.28,
+        0.32,
+        0.09
+      ],
+      "beard": [
+        0.22,
+        0.35,
+        0.56,
+        0.16
+      ]
+    },
+    "image": "/puzzles/the_weeknd.webp"
   },
   {
     "name": "Morgan Freeman",
     "wiki": "Morgan_Freeman",
-    "aliases": ["Morgan"],
-    "modes": ["hair", "beard", "eyes", "nose"],
+    "aliases": [
+      "Morgan"
+    ],
+    "modes": [
+      "hair",
+      "beard",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.18, 0.03, 0.64, 0.15],
-      "eyes": [0.22, 0.18, 0.56, 0.08],
-      "nose": [0.34, 0.25, 0.32, 0.09],
-      "beard": [0.22, 0.32, 0.56, 0.16]
-    }
+      "hair": [
+        0.18,
+        0.03,
+        0.64,
+        0.15
+      ],
+      "eyes": [
+        0.22,
+        0.18,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.34,
+        0.25,
+        0.32,
+        0.09
+      ],
+      "beard": [
+        0.22,
+        0.32,
+        0.56,
+        0.16
+      ]
+    },
+    "image": "/puzzles/morgan_freeman.webp"
   },
   {
     "name": "Gordon Ramsay",
     "wiki": "Gordon_Ramsay",
-    "aliases": ["Chef Ramsay"],
-    "modes": ["hair", "eyes", "nose"],
+    "aliases": [
+      "Chef Ramsay"
+    ],
+    "modes": [
+      "hair",
+      "eyes",
+      "nose"
+    ],
     "crop": {
-      "hair": [0.18, 0.03, 0.64, 0.16],
-      "eyes": [0.22, 0.19, 0.56, 0.08],
-      "nose": [0.34, 0.26, 0.32, 0.09]
-    }
+      "hair": [
+        0.18,
+        0.03,
+        0.64,
+        0.16
+      ],
+      "eyes": [
+        0.22,
+        0.19,
+        0.56,
+        0.08
+      ],
+      "nose": [
+        0.34,
+        0.26,
+        0.32,
+        0.09
+      ]
+    },
+    "image": "/puzzles/gordon_ramsay.webp"
   }
 ]

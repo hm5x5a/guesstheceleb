@@ -23,21 +23,36 @@ export interface CelebEntry {
   aliases?: string[];
   modes: string[];
   crop?: Record<string, [number, number, number, number] | [number, number, number]>;
+  image?: string;
 }
 
 // Starter fallback list if celebs.json cannot be fetched (e.g. offline)
 const DEFAULT_CELEBS: CelebEntry[] = [
+  {
+    name: 'Lionel Messi',
+    wiki: 'Lionel_Messi',
+    aliases: ['Messi', 'Leo Messi'],
+    modes: ['hair', 'beard', 'nose', 'eyes'],
+    crop: {
+      hair: [0.22, 0.04, 0.56, 0.14],
+      eyes: [0.24, 0.17, 0.52, 0.08],
+      nose: [0.35, 0.23, 0.30, 0.09],
+      beard: [0.24, 0.29, 0.52, 0.15],
+    },
+    image: '/puzzles/lionel_messi.webp',
+  },
   {
     name: 'Kanye West',
     wiki: 'Kanye_West',
     aliases: ['Ye', 'Kanye'],
     modes: ['hair', 'beard', 'nose', 'eyes'],
     crop: {
-      hair: [0.18, 0.02, 0.64, 0.26],
-      beard: [0.22, 0.52, 0.56, 0.35],
-      eyes: [0.16, 0.28, 0.68, 0.18],
-      nose: [0.32, 0.36, 0.36, 0.22],
+      hair: [0.20, 0.03, 0.60, 0.15],
+      eyes: [0.22, 0.18, 0.56, 0.08],
+      nose: [0.33, 0.24, 0.34, 0.09],
+      beard: [0.22, 0.31, 0.56, 0.16],
     },
+    image: '/puzzles/kanye_west.webp',
   },
   {
     name: 'Billie Eilish',
@@ -45,10 +60,11 @@ const DEFAULT_CELEBS: CelebEntry[] = [
     aliases: ['Billie'],
     modes: ['hair', 'nose', 'eyes'],
     crop: {
-      hair: [0.12, 0.04, 0.76, 0.32],
-      eyes: [0.18, 0.34, 0.64, 0.18],
-      nose: [0.34, 0.40, 0.32, 0.20],
+      hair: [0.12, 0.04, 0.76, 0.20],
+      eyes: [0.20, 0.24, 0.60, 0.09],
+      nose: [0.34, 0.31, 0.32, 0.10],
     },
+    image: '/puzzles/billie_eilish.webp',
   },
   {
     name: 'Drake',
@@ -56,23 +72,12 @@ const DEFAULT_CELEBS: CelebEntry[] = [
     aliases: ['Aubrey Graham', 'Champagne Papi'],
     modes: ['hair', 'beard', 'nose', 'eyes'],
     crop: {
-      hair: [0.18, 0.04, 0.64, 0.25],
-      beard: [0.20, 0.52, 0.60, 0.36],
-      eyes: [0.18, 0.30, 0.64, 0.18],
-      nose: [0.32, 0.38, 0.36, 0.20],
+      hair: [0.20, 0.04, 0.60, 0.14],
+      eyes: [0.22, 0.18, 0.56, 0.08],
+      nose: [0.34, 0.24, 0.32, 0.09],
+      beard: [0.22, 0.31, 0.56, 0.16],
     },
-  },
-  {
-    name: 'Lionel Messi',
-    wiki: 'Lionel_Messi',
-    aliases: ['Messi', 'Leo Messi'],
-    modes: ['hair', 'beard', 'nose', 'eyes'],
-    crop: {
-      hair: [0.16, 0.02, 0.68, 0.28],
-      beard: [0.22, 0.50, 0.56, 0.36],
-      eyes: [0.18, 0.30, 0.64, 0.18],
-      nose: [0.32, 0.36, 0.36, 0.22],
-    },
+    image: '/puzzles/drake_musician.webp',
   },
   {
     name: 'Snoop Dogg',
@@ -80,13 +85,15 @@ const DEFAULT_CELEBS: CelebEntry[] = [
     aliases: ['Snoop', 'Calvin Broadus'],
     modes: ['hair', 'beard', 'eyes', 'nose'],
     crop: {
-      hair: [0.14, 0.02, 0.72, 0.32],
-      beard: [0.28, 0.58, 0.44, 0.32],
-      eyes: [0.16, 0.32, 0.68, 0.18],
-      nose: [0.34, 0.40, 0.32, 0.22],
+      hair: [0.15, 0.02, 0.70, 0.20],
+      eyes: [0.20, 0.22, 0.60, 0.09],
+      nose: [0.34, 0.29, 0.32, 0.10],
+      beard: [0.28, 0.38, 0.44, 0.16],
     },
+    image: '/puzzles/snoop_dogg.webp',
   },
 ];
+
 
 let CELEBS: CelebEntry[] = DEFAULT_CELEBS;
 
@@ -166,44 +173,98 @@ function makeFallbackFace(name: string): HTMLCanvasElement {
 }
 
 /**
- * Runtime fetch from Wikipedia REST API (free, no API key, CORS enabled)
- * https://en.wikipedia.org/api/rest_v1/page/summary/<wiki>
+ * Fast local WebP loader with fallback and retry
  */
-async function loadCelebImage(celeb: CelebEntry): Promise<CanvasImageSource> {
+let isImageLoading = false;
+
+const pre = (src: string) => {
+  const i = new Image();
+  i.src = src;
+  return i.decode().catch(() => {});
+};
+
+async function loadCelebImage(celeb: CelebEntry, retry = true): Promise<CanvasImageSource> {
   if (imageCache.has(celeb.wiki)) {
     return imageCache.get(celeb.wiki)!;
   }
 
-  // Create immediate fallback while fetching
-  const fallback = makeFallbackFace(celeb.name);
-  imageCache.set(celeb.wiki, fallback);
+  isImageLoading = true;
+  drawDaily();
+
+  // 1. Try local compressed WebP puzzle asset
+  const targetSrc = celeb.image || `/puzzles/${celeb.wiki.toLowerCase().replace(/[^a-z0-9_]/g, '')}.webp`;
+  
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.src = targetSrc;
 
   try {
-    const slug = encodeURIComponent(celeb.wiki);
-    const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${slug}`);
-    if (!res.ok) throw new Error('Wiki fetch status ' + res.status);
-    const data = await res.json();
-    const imgUrl = data.originalimage?.source || data.thumbnail?.source;
-
-    if (!imgUrl) throw new Error('No lead photo on Wikipedia page');
-
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.src = imgUrl;
-
-    await new Promise((resolve, reject) => {
-      img.onload = resolve;
-      img.onerror = reject;
-    });
-
+    await img.decode();
     imageCache.set(celeb.wiki, img);
-    // Redraw once image loads
+    isImageLoading = false;
     drawDaily();
     return img;
-  } catch (err) {
-    console.warn(`Could not load Wikipedia lead photo for ${celeb.name}:`, err);
+  } catch {
+    // If local image fails, retry once from Wikipedia REST API as fallback
+    if (retry) {
+      try {
+        const slug = encodeURIComponent(celeb.wiki);
+        const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${slug}`);
+        if (res.ok) {
+          const data = await res.json();
+          const remoteUrl = data.originalimage?.source || data.thumbnail?.source;
+          if (remoteUrl) {
+            const fallbackImg = new Image();
+            fallbackImg.crossOrigin = 'anonymous';
+            fallbackImg.src = remoteUrl;
+            await fallbackImg.decode();
+            imageCache.set(celeb.wiki, fallbackImg);
+            isImageLoading = false;
+            drawDaily();
+            return fallbackImg;
+          }
+        }
+      } catch (e) {
+        console.warn('Fallback wiki image failed:', e);
+      }
+    }
+
+    // Final fallback: procedural avatar
+    const fallback = makeFallbackFace(celeb.name);
+    imageCache.set(celeb.wiki, fallback);
+    isImageLoading = false;
+    drawDaily();
     return fallback;
   }
+}
+
+/**
+ * Preload tomorrow's daily puzzle so it opens instantaneously
+ */
+function preloadTomorrow() {
+  try {
+    const tomorrowDay = day + 1;
+    ['hair', 'beard', 'eyes', 'nose', 'mix'].forEach((m) => {
+      const pool = getPoolForMode(m);
+      if (pool.length === 0) return;
+      const modeSeeds: Record<string, number> = {
+        hair: 104729,
+        beard: 224737,
+        nose: 344749,
+        eyes: 464761,
+        mix: 584777,
+      };
+      const baseSeed = modeSeeds[m] || 777777;
+      const cycle = Math.floor(tomorrowDay / pool.length);
+      const indexInCycle = tomorrowDay % pool.length;
+      const cycleSeed = baseSeed + cycle * 99991;
+      const shuffled = shuffleWithSeed(pool, cycleSeed);
+      const nextCeleb = shuffled[indexInCycle];
+      if (nextCeleb && nextCeleb.image) {
+        pre(nextCeleb.image);
+      }
+    });
+  } catch {}
 }
 
 /**
@@ -281,11 +342,15 @@ function getPoolForMode(m: string): CelebEntry[] {
 }
 
 /**
- * Seeded daily picker per mode
+ * Cycle-based Seeded Daily Picker per mode:
+ * 1. Shuffles the whole pool with a seed specific to the current cycle.
+ * 2. Every celebrity is picked exactly once before repeating.
+ * 3. When the pool completes, a new permutation is generated with no back-to-back duplicates.
  */
 function getDailyCelebForMode(m: string): CelebEntry {
   const pool = getPoolForMode(m);
-  // Fixed unique seed per mode
+  if (!pool || pool.length === 0) return CELEBS[0];
+
   const modeSeeds: Record<string, number> = {
     hair: 104729,
     beard: 224737,
@@ -293,9 +358,14 @@ function getDailyCelebForMode(m: string): CelebEntry {
     eyes: 464761,
     mix: 584777,
   };
-  const seed = modeSeeds[m.toLowerCase()] || 777777;
-  const shuffled = shuffleWithSeed(pool, seed);
-  return shuffled[day % shuffled.length];
+  const baseSeed = modeSeeds[m.toLowerCase()] || 777777;
+
+  const cycle = Math.floor(day / pool.length);
+  const indexInCycle = day % pool.length;
+  const cycleSeed = baseSeed + cycle * 99991;
+
+  const shuffled = shuffleWithSeed(pool, cycleSeed);
+  return shuffled[indexInCycle];
 }
 
 const curCeleb = (): CelebEntry => {
@@ -432,15 +502,37 @@ function drawDaily() {
   g.fillStyle = '#10131f';
   g.fillRect(0, 0, 720, 720);
 
-  // Maintain exact aspect ratio without stretching, centered like Crop Run
-  const scale = Math.min(720 / sw, 720 / sh);
-  const dw = sw * scale;
-  const dh = sh * scale;
-  const dx = (720 - dw) / 2;
-  const dy = (720 - dh) / 2;
+  // If image is still decoding, draw a sleek skeleton placeholder
+  if (isImageLoading) {
+    g.fillStyle = '#181b30';
+    g.fillRect(0, 0, 720, 720);
 
-  g.imageSmoothingQuality = 'high';
-  g.drawImage(cachedDrawable, sx, sy, sw, sh, dx, dy, dw, dh);
+    // Subtle skeleton pulse box
+    g.fillStyle = '#232845';
+    g.beginPath();
+    g.roundRect(160, 200, 400, 260, 16);
+    g.fill();
+
+    // Loading indicator text
+    g.fillStyle = '#ffc933';
+    g.font = '800 28px "Bricolage Grotesque", system-ui, sans-serif';
+    g.textAlign = 'center';
+    g.fillText('Loading puzzle...', 360, 340);
+
+    g.fillStyle = '#9aa0ba';
+    g.font = '500 18px "Bricolage Grotesque", system-ui, sans-serif';
+    g.fillText('Preparing daily crop from CDN', 360, 380);
+  } else {
+    // Maintain exact aspect ratio without stretching, centered like Crop Run
+    const scale = Math.min(720 / sw, 720 / sh);
+    const dw = sw * scale;
+    const dh = sh * scale;
+    const dx = (720 - dw) / 2;
+    const dy = (720 - dh) / 2;
+
+    g.imageSmoothingQuality = 'high';
+    g.drawImage(cachedDrawable, sx, sy, sw, sh, dx, dy, dw, dh);
+  }
 
   // Render dots
   $('#dots').innerHTML = Array.from(
@@ -452,7 +544,9 @@ function drawDaily() {
   ).join('');
 
   const n = MAX - s.tries.length;
-  $('#msg').textContent = s.done
+  $('#msg').textContent = isImageLoading
+    ? 'Loading puzzle...'
+    : s.done
     ? s.won
       ? `Yes, it is ${celeb.name}.`
       : `It was ${celeb.name}.`
@@ -471,7 +565,7 @@ function drawDaily() {
   $('#share').hidden = !s.done;
   $('#again').hidden = !(s.done && isU());
   $('#giveup').hidden = s.done;
-  $('#go').disabled = $('#g').disabled = s.done;
+  $('#go').disabled = $('#g').disabled = s.done || isImageLoading;
 
   const a = ls.get('gtc2_all', null) || { last: 0, streak: 0 };
   const k = a.last >= day - 1 ? a.streak : 0;
@@ -502,6 +596,9 @@ function finish(s: any, ok: boolean) {
       a.last = day;
       ls.set('gtc2_all', a);
     }
+
+    // Preload tomorrow's daily puzzle when user finishes
+    preloadTomorrow();
   }
   if (ok && setg().cf !== false) confetti();
 }
@@ -1257,6 +1354,15 @@ async function initCelebs() {
   } catch (err) {
     console.log('Using embedded fallback celebrities list:', err);
   }
+
+  // Start preloading today's puzzle image immediately
+  try {
+    const todayCeleb = curCeleb();
+    if (todayCeleb && todayCeleb.image) {
+      pre(todayCeleb.image);
+    }
+  } catch {}
+
   populateDatalist();
   applySet();
   route();
@@ -1264,3 +1370,4 @@ async function initCelebs() {
 
 addEventListener('hashchange', route);
 initCelebs();
+
