@@ -1,0 +1,233 @@
+[
+  {
+    "name": "Lionel Messi",
+    "wiki": "Lionel_Messi",
+    "aliases": ["Messi", "Leo Messi"],
+    "modes": ["hair", "beard", "nose", "eyes"],
+    "crop": {
+      "hair": [0.22, 0.04, 0.56, 0.14],
+      "eyes": [0.24, 0.17, 0.52, 0.08],
+      "nose": [0.35, 0.23, 0.30, 0.09],
+      "beard": [0.24, 0.29, 0.52, 0.15]
+    }
+  },
+  {
+    "name": "Kanye West",
+    "wiki": "Kanye_West",
+    "aliases": ["Ye", "Kanye"],
+    "modes": ["hair", "beard", "nose", "eyes"],
+    "crop": {
+      "hair": [0.20, 0.03, 0.60, 0.15],
+      "eyes": [0.22, 0.18, 0.56, 0.08],
+      "nose": [0.33, 0.24, 0.34, 0.09],
+      "beard": [0.22, 0.31, 0.56, 0.16]
+    }
+  },
+  {
+    "name": "Billie Eilish",
+    "wiki": "Billie_Eilish",
+    "aliases": ["Billie"],
+    "modes": ["hair", "nose", "eyes"],
+    "crop": {
+      "hair": [0.12, 0.04, 0.76, 0.20],
+      "eyes": [0.20, 0.24, 0.60, 0.09],
+      "nose": [0.34, 0.31, 0.32, 0.10]
+    }
+  },
+  {
+    "name": "Drake",
+    "wiki": "Drake_(musician)",
+    "aliases": ["Aubrey Graham", "Champagne Papi"],
+    "modes": ["hair", "beard", "nose", "eyes"],
+    "crop": {
+      "hair": [0.20, 0.04, 0.60, 0.14],
+      "eyes": [0.22, 0.18, 0.56, 0.08],
+      "nose": [0.34, 0.24, 0.32, 0.09],
+      "beard": [0.22, 0.31, 0.56, 0.16]
+    }
+  },
+  {
+    "name": "Snoop Dogg",
+    "wiki": "Snoop_Dogg",
+    "aliases": ["Snoop", "Calvin Broadus"],
+    "modes": ["hair", "beard", "eyes", "nose"],
+    "crop": {
+      "hair": [0.15, 0.02, 0.70, 0.20],
+      "eyes": [0.20, 0.22, 0.60, 0.09],
+      "nose": [0.34, 0.29, 0.32, 0.10],
+      "beard": [0.28, 0.38, 0.44, 0.16]
+    }
+  },
+  {
+    "name": "Zendaya",
+    "wiki": "Zendaya",
+    "aliases": ["Zendaya Coleman"],
+    "modes": ["hair", "eyes", "nose"],
+    "crop": {
+      "hair": [0.12, 0.03, 0.76, 0.18],
+      "eyes": [0.22, 0.21, 0.56, 0.08],
+      "nose": [0.35, 0.28, 0.30, 0.09]
+    }
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "wiki": "Cristiano_Ronaldo",
+    "aliases": ["Ronaldo", "CR7"],
+    "modes": ["hair", "eyes", "nose"],
+    "crop": {
+      "hair": [0.22, 0.03, 0.56, 0.15],
+      "eyes": [0.24, 0.17, 0.52, 0.08],
+      "nose": [0.34, 0.23, 0.32, 0.09]
+    }
+  },
+  {
+    "name": "LeBron James",
+    "wiki": "LeBron_James",
+    "aliases": ["King James", "LeBron"],
+    "modes": ["hair", "beard", "eyes", "nose"],
+    "crop": {
+      "hair": [0.22, 0.02, 0.56, 0.13],
+      "eyes": [0.22, 0.16, 0.56, 0.08],
+      "nose": [0.33, 0.23, 0.34, 0.09],
+      "beard": [0.20, 0.30, 0.60, 0.18]
+    }
+  },
+  {
+    "name": "Pedro Pascal",
+    "wiki": "Pedro_Pascal",
+    "aliases": ["Pedro"],
+    "modes": ["hair", "beard", "eyes", "nose"],
+    "crop": {
+      "hair": [0.20, 0.04, 0.60, 0.14],
+      "eyes": [0.22, 0.18, 0.56, 0.08],
+      "nose": [0.34, 0.24, 0.32, 0.09],
+      "beard": [0.24, 0.31, 0.52, 0.15]
+    }
+  },
+  {
+    "name": "Cillian Murphy",
+    "wiki": "Cillian_Murphy",
+    "aliases": ["Cillian"],
+    "modes": ["hair", "eyes", "nose"],
+    "crop": {
+      "hair": [0.20, 0.03, 0.60, 0.16],
+      "eyes": [0.20, 0.19, 0.60, 0.08],
+      "nose": [0.33, 0.25, 0.34, 0.09]
+    }
+  },
+  {
+    "name": "Post Malone",
+    "wiki": "Post_Malone",
+    "aliases": ["Austin Post"],
+    "modes": ["hair", "beard", "eyes", "nose"],
+    "crop": {
+      "hair": [0.15, 0.02, 0.70, 0.18],
+      "eyes": [0.22, 0.20, 0.56, 0.08],
+      "nose": [0.34, 0.27, 0.32, 0.09],
+      "beard": [0.20, 0.34, 0.60, 0.18]
+    }
+  },
+  {
+    "name": "Dwayne Johnson",
+    "wiki": "Dwayne_Johnson",
+    "aliases": ["The Rock"],
+    "modes": ["hair", "eyes", "nose"],
+    "crop": {
+      "hair": [0.22, 0.02, 0.56, 0.14],
+      "eyes": [0.22, 0.17, 0.56, 0.08],
+      "nose": [0.33, 0.24, 0.34, 0.09]
+    }
+  },
+  {
+    "name": "Travis Scott",
+    "wiki": "Travis_Scott",
+    "aliases": ["Jacques Webster", "La Flame"],
+    "modes": ["hair", "beard", "eyes", "nose"],
+    "crop": {
+      "hair": [0.15, 0.02, 0.70, 0.20],
+      "eyes": [0.22, 0.21, 0.56, 0.08],
+      "nose": [0.34, 0.28, 0.32, 0.09],
+      "beard": [0.26, 0.35, 0.48, 0.15]
+    }
+  },
+  {
+    "name": "Ariana Grande",
+    "wiki": "Ariana_Grande",
+    "aliases": ["Ariana"],
+    "modes": ["hair", "eyes", "nose"],
+    "crop": {
+      "hair": [0.14, 0.02, 0.72, 0.18],
+      "eyes": [0.22, 0.20, 0.56, 0.08],
+      "nose": [0.34, 0.27, 0.32, 0.09]
+    }
+  },
+  {
+    "name": "Keanu Reeves",
+    "wiki": "Keanu_Reeves",
+    "aliases": ["Keanu"],
+    "modes": ["hair", "beard", "eyes", "nose"],
+    "crop": {
+      "hair": [0.18, 0.03, 0.64, 0.18],
+      "eyes": [0.22, 0.20, 0.56, 0.08],
+      "nose": [0.34, 0.27, 0.32, 0.09],
+      "beard": [0.22, 0.34, 0.56, 0.16]
+    }
+  },
+  {
+    "name": "Rihanna",
+    "wiki": "Rihanna",
+    "aliases": ["Robyn Fenty"],
+    "modes": ["hair", "eyes", "nose"],
+    "crop": {
+      "hair": [0.15, 0.03, 0.70, 0.18],
+      "eyes": [0.22, 0.20, 0.56, 0.08],
+      "nose": [0.34, 0.27, 0.32, 0.09]
+    }
+  },
+  {
+    "name": "Taylor Swift",
+    "wiki": "Taylor_Swift",
+    "aliases": ["Taylor"],
+    "modes": ["hair", "eyes", "nose"],
+    "crop": {
+      "hair": [0.14, 0.03, 0.72, 0.18],
+      "eyes": [0.22, 0.20, 0.56, 0.08],
+      "nose": [0.34, 0.27, 0.32, 0.09]
+    }
+  },
+  {
+    "name": "The Weeknd",
+    "wiki": "The_Weeknd",
+    "aliases": ["Abel Tesfaye", "Abel"],
+    "modes": ["hair", "beard", "eyes", "nose"],
+    "crop": {
+      "hair": [0.15, 0.03, 0.70, 0.19],
+      "eyes": [0.22, 0.21, 0.56, 0.08],
+      "nose": [0.34, 0.28, 0.32, 0.09],
+      "beard": [0.22, 0.35, 0.56, 0.16]
+    }
+  },
+  {
+    "name": "Morgan Freeman",
+    "wiki": "Morgan_Freeman",
+    "aliases": ["Morgan"],
+    "modes": ["hair", "beard", "eyes", "nose"],
+    "crop": {
+      "hair": [0.18, 0.03, 0.64, 0.15],
+      "eyes": [0.22, 0.18, 0.56, 0.08],
+      "nose": [0.34, 0.25, 0.32, 0.09],
+      "beard": [0.22, 0.32, 0.56, 0.16]
+    }
+  },
+  {
+    "name": "Gordon Ramsay",
+    "wiki": "Gordon_Ramsay",
+    "aliases": ["Chef Ramsay"],
+    "modes": ["hair", "eyes", "nose"],
+    "crop": {
+      "hair": [0.18, 0.03, 0.64, 0.16],
+      "eyes": [0.22, 0.19, 0.56, 0.08],
+      "nose": [0.34, 0.26, 0.32, 0.09]
+    }
+  }
+]

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Guess The Celeb: Daily Celebrity Crop Game & Cutout Maker</title>
+<meta name="description" content="Guess the celebrity from a cropped hairline, beard, nose or eyes. Play the daily puzzle, keep your streak, or make your own hold-to-reveal crop game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap" rel="stylesheet">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="canonical" href="https://guesstheceleb.org/">
+
+<!-- Open Graph / Social SEO -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://guesstheceleb.org/">
+<meta property="og:title" content="Guess The Celeb: Daily Celebrity Crop Game">
+<meta property="og:description" content="Guess the celebrity from a cropped hairline, beard, nose or eyes. Play the daily puzzle, keep your streak, or make your own crop game.">
+<meta property="og:image" content="https://guesstheceleb.org/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://guesstheceleb.org/">
+<meta name="twitter:title" content="Guess The Celeb: Daily Celebrity Crop Game">
+<meta name="twitter:description" content="Can you name the star from just their hairline or beard? Play daily and test your pop-culture knowledge.">
+<meta name="twitter:image" content="https://guesstheceleb.org/og-image.png">
+
+<!-- Structured Data for Google SEO (FAQPage & HowTo) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "How to play Guess The Celeb",
+      "description": "Learn how to guess celebrities from cropped hairlines, beards, and eyes in 5 attempts.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Make your first guess",
+          "text": "Study the cropped photo (hairline, beard, nose, or eyes). Type the celebrity's name in the guess box and press Enter."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Check clues and feature details",
+          "text": "Examine signature fades, textures, or stubble. Each guess records a dot indicator."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Keep your daily streak alive",
+          "text": "Solve the mystery celebrity within 5 attempts to maintain your consecutive daily streak."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Guess The Celeb?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Guess The Celeb is a free daily pop-culture crop puzzle game where players identify world-famous celebrities from tightly cropped photos of their hair, beard, nose, or eyes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I play Guess The Celeb?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Choose a mode (Hair, Beard, Nose, Eyes, or Daily Mix). Inspect the cropped photo, type your guess, and submit. You have 5 attempts per daily puzzle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the crop rules?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Crops are strictly isolated to make the game challenging. When guessing by Hair, eyebrows are hidden. For Beard, the nose is hidden. For Eyes, forehead and nose are hidden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many attempts do I get?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You get 5 attempts. After winning or giving up, the complete uncropped photo is revealed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I make my own crop game for TikTok or parties?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Use the Crop run mode to add custom photos, draw crop rectangles, and host hold-to-reveal games."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+:root{--bg:#eef0f7;--ink:#10131f;--card:#fff;--blue:#2d3cff;--sun:#ffc933;--ok:#2ec98a;--bad:#ff5d5d;--mut:#5b6177;box-sizing:border-box;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0d0f1c;--ink:#f1f2fa;--card:#181b30;--mut:#9aa0ba}}
+:root[data-theme=dark]{--bg:#0d0f1c;--ink:#f1f2fa;--card:#181b30;--mut:#9aa0ba}
+*,*:before,*:after{box-sizing:inherit}
+html{height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:500 clamp(15px,1.6vw,17px)/1.5 'Bricolage Grotesque',system-ui,sans-serif}
+button,input{font:inherit;color:inherit}
+h1,h2{font-weight:800;line-height:1.02;letter-spacing:-.02em;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,28px)}
+header{background:var(--blue);color:#fff;border-bottom:3px solid var(--ink)}
+header .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 8px;padding-top:10px;padding-bottom:10px}
+nav{order:5;width:100%;overflow-x:auto;flex-wrap:nowrap;display:flex;gap:6px}
+.tab{white-space:nowrap;text-decoration:none;background:transparent;border:2px solid transparent;color:#fff;padding:6px 12px;border-radius:99px;cursor:pointer;font-weight:800}
+.tab[aria-selected=true]{background:#fff;color:var(--ink);border-color:var(--ink)}
+.hb{background:transparent;border:2px solid #fff;color:#fff;border-radius:10px;width:38px;height:34px;cursor:pointer;font-weight:800}
+:root[data-cb]{--ok:#3b82f6;--bad:#f59e0b}
+dialog{border:0;padding:0;background:none;color:var(--ink);width:min(520px,94vw);max-height:90dvh}
+dialog::backdrop{background:rgba(8,10,25,.6)}
+dialog .card{max-height:88dvh;overflow:auto}
+h3{margin:16px 0 6px}
+.boxes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.box{border:2px solid var(--ink);border-radius:12px;padding:8px;text-align:center;background:var(--bg)}
+.box b{display:block;font-size:1.7rem;line-height:1.1}
+.box span{font-size:.72rem;color:var(--mut)}
+.bar{display:flex;gap:8px;align-items:center;margin:4px 0}
+.bar>div{flex:1;background:var(--bg);border-radius:6px}
+.bar i{display:block;background:var(--ok);color:#10131f;font-style:normal;font-weight:800;padding:0 8px;border-radius:6px;min-width:26px;text-align:right}
+.tg{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--mut)}
+.tg input{width:22px;height:22px;accent-color:var(--blue)}
+.tg small{display:block;color:var(--mut)}
+.logo{font-weight:800;font-size:1.25rem;letter-spacing:-.03em;margin-right:auto;white-space:nowrap}
+.logo b{background:var(--sun);color:var(--ink);padding:0 .3em;border-radius:6px;margin:0 .1em}
+.pill{background:var(--sun);color:var(--ink);border:2px solid var(--ink);border-radius:99px;padding:3px 10px;font-weight:800;white-space:nowrap}
+.hero{padding:clamp(22px,5vw,48px) 0 18px}
+.hero h1{font-size:clamp(2rem,6.5vw,4rem);max-width:14ch}
+.hero p{color:var(--mut);max-width:46ch;margin:10px 0 0}
+.grid{display:grid;gap:22px;grid-template-columns:minmax(0,1fr);align-items:start}
+@media(min-width:860px){.grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}}
+.card{background:var(--card);border:3px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:clamp(14px,3vw,24px)}
+.btn{background:var(--blue);color:#fff;border:3px solid var(--ink);border-radius:12px;padding:9px 16px;font-weight:800;cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:transform .08s,box-shadow .08s}
+.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.btn.alt{background:var(--card);color:var(--ink)}.btn.sun{background:var(--sun);color:var(--ink)}
+.btn:disabled{opacity:.45;pointer-events:none}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.chip{border:2px solid var(--ink);background:var(--card);border-radius:99px;padding:4px 13px;cursor:pointer;font-weight:800}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+canvas{display:block;width:100%;height:auto;border:3px solid var(--ink);border-radius:12px;background:#222;touch-action:none}
+.dots{display:flex;gap:6px;margin:12px 0}
+.dots i{flex:1;height:14px;border:2px solid var(--ink);border-radius:5px;background:var(--bg)}
+.dots i.x{background:var(--bad)}.dots i.w{background:var(--ok)}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row input[type=text]{flex:1 1 160px;min-width:0;border:3px solid var(--ink);border-radius:12px;padding:9px 12px;background:var(--bg)}
+.msg{min-height:1.5em;margin:10px 0 0;font-weight:800}
+.mut{color:var(--mut)}
+h2{font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:6px}
+.drop{display:block;border:3px dashed var(--ink);border-radius:14px;padding:22px 12px;text-align:center;cursor:pointer;background:var(--bg)}
+.drop.on{background:var(--sun);color:var(--ink)}
+.strip{display:flex;gap:8px;overflow-x:auto;padding:10px 2px;margin:0}
+.strip button{flex:0 0 64px;height:64px;padding:0;border:3px solid var(--ink);border-radius:10px;overflow:hidden;cursor:pointer;background:#222}
+.strip button[aria-current=true]{outline:3px solid var(--blue);outline-offset:2px}
+.strip canvas{border:0;border-radius:0;height:100%;object-fit:cover}
+#editor{display:none}
+#ce{cursor:crosshair;max-height:60dvh;width:auto;max-width:100%;margin:0 auto}
+footer{padding:40px 0 30px;color:var(--mut);border-top:1px solid rgba(0,0,0,.08);margin-top:40px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+#play{position:fixed;inset:0;z-index:9;background:var(--blue);display:none;flex-direction:column;align-items:center;gap:12px;padding:calc(12px + env(safe-area-inset-top)) 14px calc(12px + env(safe-area-inset-bottom));color:#fff;user-select:none;-webkit-user-select:none}
+#play.on{display:flex}
+#pc{width:auto;max-width:100%;flex:1;min-height:0;aspect-ratio:3/4;cursor:pointer;-webkit-touch-callout:none}
+#lab{font-weight:800;font-size:1.5rem;min-height:1.6em;visibility:hidden}
+#lab.on{visibility:visible}
+.view{display:none}.view.on{display:block}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* SEO & Education Sections (How to play, Tips, FAQ) */
+.guide-wrap{margin-top:44px;display:flex;flex-direction:column;gap:32px}
+.section-badge{display:inline-block;background:#d8f3dc;color:#1b4332;padding:6px 18px;border-radius:99px;font-weight:800;font-size:clamp(1rem,2vw,1.25rem);margin:0 auto 18px;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+:root[data-theme=dark] .section-badge{background:#1e3a2b;color:#a7f3d0}
+.center-header{text-align:center;margin-bottom:24px}
+.steps-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:768px){.steps-grid{grid-template-columns:repeat(3,1fr)}}
+.step-card{background:var(--card);border:3px solid var(--ink);border-radius:16px;padding:18px;box-shadow:4px 4px 0 var(--ink);display:flex;flex-direction:column;gap:10px}
+.step-num{display:inline-flex;width:34px;height:34px;border-radius:99px;background:var(--ok);color:#10131f;font-weight:800;font-size:1.1rem;align-items:center;justify-content:center;border:2px solid var(--ink)}
+.tips-list{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+@media(min-width:768px){.tips-list{grid-template-columns:1fr 1fr}}
+.tip-item{background:var(--bg);border:2px solid var(--ink);border-radius:14px;padding:14px}
+.tip-item b{display:block;margin-bottom:4px;font-size:1rem;color:var(--ink)}
+.tip-item p{margin:0;font-size:0.9rem;color:var(--mut)}
+.faq-list{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+details.faq-item{background:var(--card);border:3px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink);overflow:hidden;transition:box-shadow .15s}
+details.faq-item[open]{box-shadow:2px 2px 0 var(--ink)}
+details.faq-item summary{font-weight:800;font-size:1.05rem;padding:16px 18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.faq-item summary::-webkit-details-marker{display:none}
+details.faq-item summary:after{content:'＋';font-size:1.2rem;font-weight:800;transition:transform .15s}
+details.faq-item[open] summary:after{content:'－'}
+details.faq-item .faq-ans{padding:0 18px 18px;color:var(--mut);line-height:1.6;border-top:1px dashed var(--mut);padding-top:12px;font-size:0.95rem}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="logo">Guess<b>The</b>Celeb</div>
+<nav id="nav" aria-label="Game modes"></nav>
+<span class="pill" id="streak" title="Daily streak across all modes">0 days streak</span>
+<button class="hb" id="bs" aria-label="Statistics">▥</button>
+<button class="hb" id="bt" aria-label="Settings">⚙</button>
+<button class="hb" id="bh" aria-label="How to play">?</button>
+</div></header>
+
+<main class="wrap">
+<section id="daily" class="view on">
+<div class="hero"><h1 id="h1"></h1><p id="hp"></p></div>
+<div class="grid"><div class="card">
+<canvas id="dc" width="720" height="720" aria-label="Cropped puzzle image"></canvas>
+<div class="dots" id="dots"></div>
+<div class="row">
+<input type="text" id="g" list="names" placeholder="Type a name" autocomplete="off" aria-label="Your guess">
+<button class="btn" id="go">Guess</button>
+</div>
+<datalist id="names"></datalist>
+<p class="msg" id="msg"></p>
+<div class="row">
+<button class="btn alt" id="giveup">Give up</button>
+<button class="btn" id="again" hidden>Next puzzle</button>
+<button class="btn sun" id="share" hidden>Share Image Card</button>
+</div>
+<p class="mut" id="cd"></p>
+</div>
+<div class="card"><h2>How it works</h2>
+<p class="mut">Each mode isolates one signature feature: hair, beard, nose or eyes. When Hair is picked, eyebrows are hidden. For Beard, the nose is hidden. For Eyes, forehead and nose are hidden.</p>
+<p class="mut">A new puzzle unlocks every day for every mode, keeping its own streak. Solved puzzles reveal the full uncropped face!</p></div></div>
+
+<!-- HOW TO PLAY SECTION -->
+<div class="guide-wrap">
+<div class="center-header">
+  <div class="section-badge">How to play Guess The Celeb?</div>
+  <h2>3 Steps to Master the Daily Crop Game</h2>
+</div>
+
+<div class="steps-grid">
+  <div class="step-card">
+    <div class="step-num">1</div>
+    <h3 style="margin:4px 0">Make your first guess</h3>
+    <p class="mut" style="margin:0">Look at the cropped feature: hairline, beard, nose, or eyes. Type any celebrity's name in the input box and press Enter or Guess.</p>
+  </div>
+  <div class="step-card">
+    <div class="step-num">2</div>
+    <h3 style="margin:4px 0">Study feature clues</h3>
+    <p class="mut" style="margin:0">Check subtle details: hair texture, curl pattern, facial stubble, jawline, or eye color. Red dots record incorrect guesses.</p>
+  </div>
+  <div class="step-card">
+    <div class="step-num">3</div>
+    <h3 style="margin:4px 0">Keep your daily streak</h3>
+    <p class="mut" style="margin:0">Name the star within 5 tries to maintain your streak. A brand-new puzzle unlocks every night at local midnight for each mode.</p>
+  </div>
+</div>
+
+<!-- BEST TIPS FOR PLAYING -->
+<div class="card" style="margin-top:12px">
+  <div class="center-header" style="margin-bottom:12px">
+    <div class="section-badge" style="background:#fef08a;color:#713f12">Best Tips for Guessing</div>
+    <h2>Strategies to Boost Your Win Streak</h2>
+  </div>
+  <div class="tips-list">
+    <div class="tip-item">
+      <b>1. Look for Signature Hairlines & Fades</b>
+      <p>Notice distinctive tapers, buzzcuts, iconic dyed roots, or signature curls before making a guess.</p>
+    </div>
+    <div class="tip-item">
+      <b>2. Check Beard Density & Grooming</b>
+      <p>Pay attention to trimmed goatees, thick full beards, clean line-ups, or ginger stubble.</p>
+    </div>
+    <div class="tip-item">
+      <b>3. Focus on Eye Color & Iris Shape</b>
+      <p>Eye spacing and piercing iris colors (like Cillian Murphy's blue eyes) are instant dead giveaways.</p>
+    </div>
+    <div class="tip-item">
+      <b>4. Think of Global Pop Culture Icons</b>
+      <p>Puzzles feature globally famous figures in music, sports, and film. Start with recognizable A-list stars.</p>
+    </div>
+    <div class="tip-item">
+      <b>5. Try the Daily Mix Mode</b>
+      <p>In Daily Mix, each wrong guess reveals a different feature: Hair &rarr; Eyes &rarr; Nose &rarr; Beard &rarr; Full Face.</p>
+    </div>
+    <div class="tip-item">
+      <b>6. Common Nicknames & Aliases Work</b>
+      <p>Popular monikers like "Ye", "The Rock", "CR7", and "Messi" are accepted in addition to full names.</p>
+    </div>
+    <div class="tip-item">
+      <b>7. Practice Unlimited Mode</b>
+      <p>Play unlimited rounds with randomized celebrity crops to sharpen your visual recognition skills.</p>
+    </div>
+    <div class="tip-item">
+      <b>8. Stay Calm and Think Logically</b>
+      <p>Eliminate stars with different skin tones or facial structures to quickly narrow down your options.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FREQUENTLY ASKED QUESTIONS SECTION -->
+<div class="card" style="margin-top:12px">
+  <div class="center-header" style="margin-bottom:12px">
+    <div class="section-badge" style="background:#e0e7ff;color:#312e81">Frequently Asked Questions</div>
+    <h2>Everything You Need to Know</h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item" open>
+      <summary>What is Guess The Celeb?</summary>
+      <div class="faq-ans">Guess The Celeb is a free daily pop-culture crop puzzle game where players identify world-famous celebrities from tightly cropped photos of their hair, beard, nose, or eyes. Inspired by viral TikTok street challenges, it brings the game to your browser with daily streaks and multiple modes.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How do I play?</summary>
+      <div class="faq-ans">Select your preferred mode from the top bar (Hair, Beard, Nose, Eyes, Daily Mix, or Unlimited). Study the cropped photo, type your answer into the search bar, and submit. You have 5 tries to guess the mystery star.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What are the cropping rules?</summary>
+      <div class="faq-ans">Crops are strictly isolated to make the game challenging. When guessing by Hair, eyebrows are hidden. For Beard, the nose is hidden. For Eyes, forehead and nose are hidden. The puzzle remains tightly cropped so you rely on signature feature details.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How many attempts do I get?</summary>
+      <div class="faq-ans">You get 5 attempts per daily puzzle. After winning or giving up, the complete uncropped photo is revealed alongside your score distribution.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How does the Daily Streak work?</summary>
+      <div class="faq-ans">Solving any daily puzzle counts towards your consecutive streak. You can also track individual stats, win percentages, and try distributions in the Statistics (▥) panel.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Can I create my own crop games for TikTok, Reels, or parties?</summary>
+      <div class="faq-ans">Yes! Tap 'Crop run' in the top navigation. Upload your own photos, drag crop boxes, and click 'Start run' to launch interactive Hold-to-Reveal Host Mode—perfect for recording street trivia videos or hosting party games.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Is Guess The Celeb free to play?</summary>
+      <div class="faq-ans">Yes, 100% free with no login and no account required. All photos and crops are processed locally on your device with complete privacy.</div>
+    </details>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="make" class="view">
+<div class="hero"><h1>Make a crop run.</h1><p>Add photos, crop the part you want to show, then play them one by one. Hold to reveal, let go to hide again.</p></div>
+<div class="grid"><div class="card">
+<label class="drop" id="drop">Drop photos here or tap to choose<br><span class="mut">JPG, PNG or WebP. Photos stay on your device.</span><input type="file" id="file" accept="image/*" multiple hidden></label>
+<div class="strip" id="strip"></div>
+<div class="row"><button class="btn" id="start" disabled>Start run</button></div>
+</div>
+<div class="card" id="editor"><h2>Crop it</h2>
+<p class="mut" style="margin:0 0 10px">Drag to draw a crop. Drag inside it to move, drag the corner to resize.</p>
+<div class="chips" id="presets"></div>
+<canvas id="ce" aria-label="Crop editor"></canvas>
+<div class="row" style="margin-top:12px"><input type="text" id="lbl" placeholder="Answer shown on reveal (optional)" aria-label="Answer"><button class="btn alt" id="undo">Undo</button><button class="btn alt" id="expjson">Export JSON</button><button class="btn alt" id="del">Remove</button></div>
+</div></div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>Everything runs on your device. No login, no uploads.</span><span>Android app coming soon.</span></div></footer>
+
+<dialog id="dlg"></dialog>
+<div id="play" role="dialog" aria-label="Crop run"><div class="row" style="width:100%;justify-content:space-between;align-items:center"><b id="cnt"></b><button class="btn alt" id="close">Close</button></div>
+<canvas id="pc"></canvas><div id="lab"></div>
+<div class="row"><button class="btn alt" id="prev">Back</button><span class="mut" style="align-self:center;color:#fff">Hold to reveal</span><button class="btn sun" id="next">Next</button></div></div>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>

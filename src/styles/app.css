@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100dvh;
+  background-color: #080a0f;
+  color: #f8fafc;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body:not(.dark) {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+body.dark {
+  background-color: #080a0f;
+  color: #f8fafc;
+}
+
+/* Safe area padding */
+.safe-padding-top {
+  padding-top: max(12px, var(--safe-top));
+}
+
+.safe-padding-bottom {
+  padding-bottom: max(16px, var(--safe-bottom));
+}
+
+/* Crisp button active feedback */
+button:active {
+  transform: scale(0.98);
+}
+
+/* Disable unwanted selection during fast tapping */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.16s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Hide scrollbar for clean carousels */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
