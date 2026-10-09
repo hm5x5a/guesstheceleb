@@ -404,35 +404,63 @@ const newU = () => {
 const stats = (m: string) =>
   ls.get(MK(m), null) || { played: 0, won: 0, dist: [0, 0, 0, 0, 0], streak: 0, max: 0, last: 0 };
 
-// Setup Nav Tabs
-$('#nav').innerHTML = Object.entries(ROUTES)
-  .map(([k, v]) => `<button class="tab" data-r="${k}" aria-selected="false">${v[0]}</button>`)
-  .join('');
+/* Real Path & Mode mapping */
+const PATH_MAP: Record<string, string> = {
+  '/': 'hair',
+  '/guess-the-celebrity-by-hair/': 'hair',
+  '/guess-the-celebrity-by-beard/': 'beard',
+  '/guess-the-celebrity-by-nose/': 'nose',
+  '/guess-the-celebrity-by-eyes/': 'eyes',
+  '/unlimited-guess-the-celebrity/': 'unlimited',
+  '/custom-guess-the-celebrity/': 'make',
+};
 
-$$('#nav .tab').forEach((t: HTMLElement) => {
-  t.onclick = () => (location.hash = '#/' + t.dataset.r);
-});
+const URLS: Record<string, string> = {
+  hair: '/guess-the-celebrity-by-hair/',
+  beard: '/guess-the-celebrity-by-beard/',
+  nose: '/guess-the-celebrity-by-nose/',
+  eyes: '/guess-the-celebrity-by-eyes/',
+  mix: '/#mix',
+  unlimited: '/unlimited-guess-the-celebrity/',
+  make: '/custom-guess-the-celebrity/',
+};
+
+// Setup Nav Links as real anchors for SEO
+const navEl = $('#nav');
+if (navEl) {
+  navEl.innerHTML = Object.entries(ROUTES)
+    .map(([k, v]) => `<a class="tab" href="${URLS[k] || '/'}" data-r="${k}" aria-selected="false">${v[0]}</a>`)
+    .join('');
+}
 
 function route() {
-  const r = location.hash.replace('#/', '');
-  rt = ROUTES[r] ? r : 'hair';
+  const path = window.location.pathname.replace(/\/index\.html$/, '/');
+  let detected = PATH_MAP[path];
+  
+  // Hash fallback for backwards compatibility or /#mix
+  if (!detected && location.hash) {
+    const hashKey = location.hash.replace(/^#\/?/, '');
+    if (ROUTES[hashKey]) detected = hashKey;
+  }
+
+  rt = detected || 'hair';
   const o = ROUTES[rt];
   const mk = rt === 'make';
-
-  document.title = o[1] + ' | GuessTheCeleb';
-  const metaDesc = $('meta[name=description]');
-  if (metaDesc) metaDesc.content = o[2];
 
   $$('#nav .tab').forEach((t: HTMLElement) =>
     t.setAttribute('aria-selected', String(t.dataset.r === rt))
   );
 
-  $('#daily').classList.toggle('on', !mk);
-  $('#make').classList.toggle('on', mk);
+  const dailyEl = $('#daily');
+  const makeEl = $('#make');
+  if (dailyEl) dailyEl.classList.toggle('on', !mk);
+  if (makeEl) makeEl.classList.toggle('on', mk);
 
-  if (!mk) {
-    $('#h1').textContent = o[1];
-    $('#hp').textContent = o[2];
+  if (!mk && dailyEl) {
+    const h1El = $('#h1');
+    const hpEl = $('#hp');
+    if (h1El) h1El.textContent = o[1];
+    if (hpEl) hpEl.textContent = o[2];
     if (isU()) {
       newU();
     } else {

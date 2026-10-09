@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>About Us | Guess The Celeb</title>
+<meta name="description" content="Learn about Guess The Celeb, our mission to provide fun daily visual pop-culture trivia, and how our game engine works.">
+<link rel="canonical" href="https://guesstheceleb.org/about/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef0f7;--ink:#10131f;--card:#fff;--blue:#2d3cff;--sun:#ffc933;--mut:#5b6177}
+@media(prefers-color-scheme:dark){:root{--bg:#0d0f1c;--ink:#f1f2fa;--card:#181b30;--mut:#9aa0ba}}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font:500 16px/1.6 'Bricolage Grotesque',system-ui,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:24px 20px}
+header{background:var(--blue);color:#fff;padding:14px 0;border-bottom:3px solid var(--ink)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:0;padding-bottom:0}
+.logo{font-weight:800;font-size:1.3rem;text-decoration:none;color:#fff}
+.logo b{background:var(--sun);color:var(--ink);padding:0 .3em;border-radius:6px}
+.card{background:var(--card);border:3px solid var(--ink);border-radius:18px;box-shadow:5px 5px 0 var(--ink);padding:clamp(20px,4vw,36px);margin-top:24px}
+h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;margin:0 0 16px;line-height:1.1}
+h2{font-size:1.4rem;font-weight:800;margin:28px 0 10px}
+p{color:var(--ink);margin:0 0 16px}
+.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;border:3px solid var(--ink);border-radius:12px;padding:10px 20px;font-weight:800;box-shadow:3px 3px 0 var(--ink);margin-top:10px}
+footer{margin-top:50px;padding:30px 0;border-top:1px solid rgba(0,0,0,.1);color:var(--mut);font-size:0.9rem}
+footer a{color:inherit;text-decoration:none}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a href="/" class="logo">Guess<b>The</b>Celeb</a>
+<a href="/" style="color:#fff;text-decoration:none;font-weight:700">Back to Game</a>
+</div></header>
+
+<main class="wrap">
+<nav aria-label="Breadcrumb" style="font-size:0.9rem;margin-bottom:8px">
+  <a href="/" style="color:var(--blue);text-decoration:none;font-weight:700">Home</a> &rsaquo;
+  <span style="color:var(--mut)">About</span>
+</nav>
+
+<div class="card">
+  <h1>About Guess The Celeb</h1>
+  <p><strong>Guess The Celeb</strong> is a free, web-based daily pop culture trivia game created for fans of film, music, athletics, and digital culture. Inspired by viral TikTok street challenges, our game turns visual recognition into an engaging daily brain teaser where players identify famous figures from tightly cropped photos of their hair, beard, nose, or eyes.</p>
+  
+  <h2>Our Mission</h2>
+  <p>We believe online games should be accessible, lightning fast, and privacy-first. Guess The Celeb requires no signups, no passwords, and collects zero personal user data. Everything—from image rendering to streak tracking—operates client-side directly on your device.</p>
+  
+  <h2>How Daily Puzzles Are Chosen</h2>
+  <p>Every midnight (local time), a new set of puzzles unlocks across our distinct game modes: Hair, Beard, Nose, and Eyes. Puzzles are distributed deterministically worldwide using seeded cryptographic algorithms so you and your friends can compare guesses on an even playing field.</p>
+  
+  <h2>Image Licensing & Fair Use</h2>
+  <p>All celebrity reference photos featured in Guess The Celeb are sourced from freely licensed Wikimedia Commons archives or educational public domain databases, complying with Creative Commons guidelines. We strictly crop images for educational trivia, commentary, and transformative gaming purposes under fair use doctrine. If you are a copyright holder with questions, please contact our team.</p>
+
+  <a href="/" class="btn">Play Today's Puzzle</a>
+</div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;flex-direction:column;gap:14px;text-align:center">
+    <div style="display:flex;gap:16px;justify-content:center;font-weight:700">
+      <a href="/">Home</a>
+      <a href="/guess-the-celebrity-by-hair/">Hair</a>
+      <a href="/guess-the-celebrity-by-beard/">Beard</a>
+      <a href="/guess-the-celebrity-by-nose/">Nose</a>
+      <a href="/guess-the-celebrity-by-eyes/">Eyes</a>
+      <a href="/about/">About</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <div>&copy; 2026 GuessTheCeleb.org. All rights reserved.</div>
+  </div>
+</footer>
+</body>
+</html>
