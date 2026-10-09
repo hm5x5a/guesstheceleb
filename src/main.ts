@@ -244,15 +244,16 @@ async function loadCelebImage(celeb: CelebEntry, retry = true): Promise<CanvasIm
 function preloadTomorrow() {
   try {
     const tomorrowDay = day + 1;
-    ['hair', 'beard', 'eyes', 'nose', 'mix'].forEach((m) => {
+    ['daily', 'hair', 'beard', 'eyes', 'nose'].forEach((m) => {
       const pool = getPoolForMode(m);
       if (pool.length === 0) return;
       const modeSeeds: Record<string, number> = {
+        daily: 584777,
+        mix: 584777,
         hair: 104729,
         beard: 224737,
         nose: 344749,
         eyes: 464761,
-        mix: 584777,
       };
       const baseSeed = modeSeeds[m] || 777777;
       const cycle = Math.floor(tomorrowDay / pool.length);
@@ -301,13 +302,13 @@ type RouteTuple = [string, string, string];
 const R = (n: string, t: string, d: string): RouteTuple => [n, t, d];
 
 const ROUTES: Record<string, RouteTuple> = {
+  daily: R('Daily', 'Guess the celebrity: daily mix', 'One celebrity, a new clue each guess: hair, eyes, nose, beard, then the full face.'),
   hair: R('Hair', 'Guess the celebrity by hair', 'Name the celebrity from a cropped hairline. A new daily puzzle, five tries.'),
   beard: R('Beard', 'Guess the celebrity by beard', 'Name the celebrity from a cropped beard. A new daily puzzle, five tries.'),
   nose: R('Nose', 'Guess the celebrity by nose', 'Name the celebrity from a cropped nose. A new daily puzzle, five tries.'),
   eyes: R('Eyes', 'Guess the celebrity by eyes', 'Name the celebrity from cropped eyes. A new daily puzzle, five tries.'),
-  mix: R('Daily Mix', 'Guess the celebrity: daily mix', 'One celebrity, a new clue each guess: hair, eyes, nose, beard, then the full face.'),
   unlimited: R('Unlimited', 'Unlimited celebrity guessing', 'Random crop puzzles with no daily limit. Play as many as you like.'),
-  make: R('Crop run', 'Make your own crop run', 'Add photos, crop them and play them one by one. Hold to reveal.'),
+  make: R('Custom', 'Make a Custom Guess the celebrity', 'Add photos, crop them and play them one by one. Hold to reveal.'),
 };
 
 const MODE_DEFAULTS: Record<string, [number, number, number, number]> = {
@@ -316,17 +317,19 @@ const MODE_DEFAULTS: Record<string, [number, number, number, number]> = {
   nose: [0.30, 0.38, 0.40, 0.24],
   eyes: [0.15, 0.30, 0.70, 0.20],
   mix: [0.0, 0.0, 1.0, 1.0],
+  daily: [0.0, 0.0, 1.0, 1.0],
 };
 
 const MAX = 5;
 const MIXO = ['hair', 'eyes', 'nose', 'beard'];
 
 const day = Math.floor((Date.now() - new Date().getTimezoneOffset() * 6e4) / 864e5);
-let rt = 'hair';
-let mode = 'Hair';
+let rt = 'daily';
+let mode = 'Daily';
 let U: any = null;
 
 const isU = () => rt === 'unlimited';
+const isDaily = () => rt === 'daily';
 const feat = () => (isU() ? U.f : mode.toLowerCase());
 const MK = (m: string) => 'gtc2_' + m;
 const DK = (m: string) => 'gtc2d_' + m;
@@ -336,7 +339,7 @@ const DK = (m: string) => 'gtc2d_' + m;
  */
 function getPoolForMode(m: string): CelebEntry[] {
   const lower = m.toLowerCase();
-  if (lower === 'unlimited' || lower === 'mix') return CELEBS;
+  if (lower === 'unlimited' || lower === 'mix' || lower === 'daily') return CELEBS;
   const filtered = CELEBS.filter((c) => c.modes && c.modes.includes(lower));
   return filtered.length > 0 ? filtered : CELEBS;
 }
@@ -352,11 +355,12 @@ function getDailyCelebForMode(m: string): CelebEntry {
   if (!pool || pool.length === 0) return CELEBS[0];
 
   const modeSeeds: Record<string, number> = {
+    daily: 584777,
+    mix: 584777,
     hair: 104729,
     beard: 224737,
     nose: 344749,
     eyes: 464761,
-    mix: 584777,
   };
   const baseSeed = modeSeeds[m.toLowerCase()] || 777777;
 
@@ -406,7 +410,7 @@ const stats = (m: string) =>
 
 /* Real Path & Mode mapping */
 const PATH_MAP: Record<string, string> = {
-  '/': 'hair',
+  '/': 'daily',
   '/guess-the-celebrity-by-hair/': 'hair',
   '/guess-the-celebrity-by-beard/': 'beard',
   '/guess-the-celebrity-by-nose/': 'nose',
@@ -416,11 +420,11 @@ const PATH_MAP: Record<string, string> = {
 };
 
 const URLS: Record<string, string> = {
+  daily: '/',
   hair: '/guess-the-celebrity-by-hair/',
   beard: '/guess-the-celebrity-by-beard/',
   nose: '/guess-the-celebrity-by-nose/',
   eyes: '/guess-the-celebrity-by-eyes/',
-  mix: '/#mix',
   unlimited: '/unlimited-guess-the-celebrity/',
   make: '/custom-guess-the-celebrity/',
 };
@@ -519,8 +523,10 @@ function drawDaily() {
   const srcW = (cachedDrawable as any).width || 800;
   const srcH = (cachedDrawable as any).height || 800;
 
+  const isDailyMix = (mode === 'Daily' || mode === 'Mix' || isDaily()) && !isU();
+
   const currentFeat =
-    mode === 'Mix' && !isU()
+    isDailyMix
       ? MIXO[Math.min(s.tries.length, 3)]
       : feat();
 
@@ -580,13 +586,13 @@ function drawDaily() {
       : `It was ${celeb.name}.`
     : s.tries.length
     ? `${n} ${n === 1 ? 'try' : 'tries'} left. ${
-        mode === 'Mix' && !isU()
+        isDailyMix
           ? 'New clue: ' + (s.tries.length > 3 ? 'full face' : MIXO[s.tries.length].toLowerCase()) + '.'
           : 'Zoomed out.'
       }`
     : isU()
     ? `This round: ${feat()}.`
-    : mode === 'Mix'
+    : isDailyMix
     ? 'First clue: hair.'
     : '';
 
@@ -958,7 +964,7 @@ function settingsModal() {
 const helpModal = () =>
   modal(
     'How to play',
-    `<p>A small crop of a face is shown. Guess who it is.</p><p>You get ${MAX} tries. Each wrong guess zooms out to show more.</p><p>Daily Mix reveals a different feature on each wrong guess. Hair, Beard, Nose and Eyes each have a new puzzle every day and their own streak. The streak in the header counts days in a row that you finish any daily puzzle.</p><p>Unlimited gives random puzzles with no streak. Crop run lets you make your own.</p>`
+    `<p>A small crop of a face is shown. Guess who it is.</p><p>You get ${MAX} tries. Each wrong guess zooms out to show more.</p><p><strong>Daily</strong> reveals a different feature on each wrong guess: Hair → Eyes → Nose → Beard → Full face. A new puzzle unlocks every day.</p><p><strong>Hair, Beard, Nose, Eyes</strong> each have their own daily puzzle and streak.</p><p><strong>Unlimited</strong> gives random puzzles with no daily limit. <strong>Custom</strong> lets you upload your own photos and make your own game.</p>`
   );
 
 $('#bs').onclick = () => statsModal(isU() || rt === 'make' ? 'Hair' : mode);
