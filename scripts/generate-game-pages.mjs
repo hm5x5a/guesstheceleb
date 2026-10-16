@@ -383,6 +383,7 @@ ${JSON.stringify(faqSchema, null, 2)}
       <a href="/unlimited-guess-the-celebrity/" style="color:inherit;text-decoration:none">Unlimited</a>
       <a href="/custom-guess-the-celebrity/" style="color:inherit;text-decoration:none">Custom Game</a>
       <a href="/about/" style="color:inherit;text-decoration:none">About</a>
+      <a href="/credits/" style="color:inherit;text-decoration:none">Credits</a>
       <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a>
       <a href="/terms/" style="color:inherit;text-decoration:none">Terms</a>
       <a href="/contact/" style="color:inherit;text-decoration:none">Contact</a>
@@ -401,7 +402,7 @@ ${JSON.stringify(faqSchema, null, 2)}
 });
 
 // Also update the root index.html with the new footer links and Organization / WebSite JSON-LD
-let rootHtml = baseTemplate;
+let rootHtml = fs.readFileSync('index.html', 'utf8');
 const rootFooterHtml = `
 <footer>
   <div class="wrap" style="display:flex;flex-direction:column;gap:16px">
@@ -414,6 +415,7 @@ const rootFooterHtml = `
       <a href="/unlimited-guess-the-celebrity/" style="color:inherit;text-decoration:none">Unlimited</a>
       <a href="/custom-guess-the-celebrity/" style="color:inherit;text-decoration:none">Custom Game</a>
       <a href="/about/" style="color:inherit;text-decoration:none">About</a>
+      <a href="/credits/" style="color:inherit;text-decoration:none">Credits</a>
       <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a>
       <a href="/terms/" style="color:inherit;text-decoration:none">Terms</a>
       <a href="/contact/" style="color:inherit;text-decoration:none">Contact</a>

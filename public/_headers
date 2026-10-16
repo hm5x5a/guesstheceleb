@@ -1,5 +1,8 @@
 /puzzles/*
   Cache-Control: public, max-age=31536000, immutable
 
+/og-image.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
 https://:project.pages.dev/*
   X-Robots-Tag: noindex, nofollow

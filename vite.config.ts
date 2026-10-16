@@ -17,6 +17,7 @@ export default defineConfig({
         unlimited: resolve(__dirname, 'unlimited-guess-the-celebrity/index.html'),
         custom: resolve(__dirname, 'custom-guess-the-celebrity/index.html'),
         about: resolve(__dirname, 'about/index.html'),
+        credits: resolve(__dirname, 'credits/index.html'),
         privacy: resolve(__dirname, 'privacy/index.html'),
         terms: resolve(__dirname, 'terms/index.html'),
         contact: resolve(__dirname, 'contact/index.html'),

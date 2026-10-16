@@ -1,0 +1,4 @@
+# Cloudflare Pages Redirects
+https://www.guesstheceleb.org/* https://guesstheceleb.org/:splat 301
+http://www.guesstheceleb.org/* https://guesstheceleb.org/:splat 301
+http://guesstheceleb.org/* https://guesstheceleb.org/:splat 301

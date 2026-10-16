@@ -1,7 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+if(location.hostname==='www.guesstheceleb.org'){location.replace('https://guesstheceleb.org'+location.pathname+location.search+location.hash)}
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE96Z8Q9WY"></script>
 <script>
@@ -164,7 +167,7 @@ h3{margin:16px 0 6px}
 .logo b{background:var(--sun);color:var(--ink);padding:0 .3em;border-radius:6px;margin:0 .1em}
 .pill{background:var(--sun);color:var(--ink);border:2px solid var(--ink);border-radius:99px;padding:3px 10px;font-weight:800;white-space:nowrap}
 .hero{padding:clamp(22px,5vw,48px) 0 18px}
-.hero h1{font-size:clamp(2rem,6.5vw,4rem);max-width:14ch}
+.hero h1, .hero h2.hero-title{font-size:clamp(2rem,6.5vw,4rem);max-width:14ch;margin:0;line-height:1.05;font-weight:800}
 .hero p{color:var(--mut);max-width:46ch;margin:10px 0 0}
 .grid{display:grid;gap:22px;grid-template-columns:minmax(0,1fr);align-items:start}
 @media(min-width:860px){.grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}}
@@ -369,7 +372,7 @@ details.faq-item .faq-ans{padding:0 18px 18px;color:var(--mut);line-height:1.6;b
 </section>
 
 <section id="make" class="view">
-<div class="hero"><h1>Make a Custom Guess the Celebrity</h1><p>Add photos, crop the part you want to show, then play them one by one. Hold to reveal, let go to hide again.</p></div>
+<div class="hero"><h2 class="hero-title">Make a Custom Guess the Celebrity</h2><p>Add photos, crop the part you want to show, then play them one by one. Hold to reveal, let go to hide again.</p></div>
 <div class="grid"><div class="card">
 <label class="drop" id="drop">Drop photos here or tap to choose<br><span class="mut">JPG, PNG or WebP. Photos stay on your device.</span><input type="file" id="file" accept="image/*" multiple hidden></label>
 <div class="strip" id="strip"></div>
@@ -385,6 +388,7 @@ details.faq-item .faq-ans{padding:0 18px 18px;color:var(--mut);line-height:1.6;b
 </main>
 
 
+
 <footer>
   <div class="wrap" style="display:flex;flex-direction:column;gap:16px">
     <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;font-weight:700">
@@ -396,6 +400,7 @@ details.faq-item .faq-ans{padding:0 18px 18px;color:var(--mut);line-height:1.6;b
       <a href="/unlimited-guess-the-celebrity/" style="color:inherit;text-decoration:none">Unlimited</a>
       <a href="/custom-guess-the-celebrity/" style="color:inherit;text-decoration:none">Custom Game</a>
       <a href="/about/" style="color:inherit;text-decoration:none">About</a>
+      <a href="/credits/" style="color:inherit;text-decoration:none">Credits</a>
       <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a>
       <a href="/terms/" style="color:inherit;text-decoration:none">Terms</a>
       <a href="/contact/" style="color:inherit;text-decoration:none">Contact</a>

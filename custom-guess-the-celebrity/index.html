@@ -1,7 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+if(location.hostname==='www.guesstheceleb.org'){location.replace('https://guesstheceleb.org'+location.pathname+location.search+location.hash)}
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE96Z8Q9WY"></script>
 <script>
@@ -33,86 +36,97 @@
 <meta name="twitter:description" content="Make your own guess the celebrity game. Add photos, crop the part you want to show, then hold to reveal. Free, no login.">
 <meta name="twitter:image" content="https://guesstheceleb.org/og-image.png">
 
-
+<!-- WebSite & Organization Structured Data for Google SEO -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Custom Guess the Celebrity: Make Your Own Game",
-  "url": "https://guesstheceleb.org/custom-guess-the-celebrity/",
-  "applicationCategory": "GameApplication",
-  "operatingSystem": "Any",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://guesstheceleb.org/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Make your own crop run",
-      "item": "https://guesstheceleb.org/custom-guess-the-celebrity/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I make my own guess the celebrity game?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Drag and drop your photos into the drop zone, use the canvas crop editor to draw your target crop rectangle, and click \"Start run\" to begin hosting."
+      "@type": "WebSite",
+      "name": "Guess The Celeb",
+      "url": "https://guesstheceleb.org/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://guesstheceleb.org/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
     },
     {
-      "@type": "Question",
-      "name": "Are my photos uploaded to any server?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. All images and crops are handled strictly client-side inside your browser memory. Your personal photos are never uploaded or stored on external servers."
-      }
+      "@type": "Organization",
+      "name": "Guess The Celeb",
+      "url": "https://guesstheceleb.org/",
+      "logo": "https://guesstheceleb.org/og-image.png",
+      "sameAs": [
+        "https://tiktok.com/@guesstheceleb",
+        "https://instagram.com/guesstheceleb"
+      ]
     },
     {
-      "@type": "Question",
-      "name": "How many photos can I add to a crop run?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You can upload dozens of photos to create complete trivia series for street interviews, social videos, or party games."
-      }
+      "@type": "HowTo",
+      "name": "How to play Guess The Celeb",
+      "description": "Learn how to guess celebrities from cropped hairlines, beards, and eyes in 5 attempts.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Make your first guess",
+          "text": "Study the cropped photo (hairline, beard, nose, or eyes). Type the celebrity's name in the guess box and press Enter."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Check clues and feature details",
+          "text": "Examine signature fades, textures, or stubble. Each guess records a dot indicator."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Keep your daily streak alive",
+          "text": "Solve the mystery celebrity within 5 attempts to maintain your consecutive daily streak."
+        }
+      ]
     },
     {
-      "@type": "Question",
-      "name": "How do I record games for TikTok or Reels?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Open Crop Run in fullscreen on your phone or laptop. Screen-record while tapping and holding the image to reveal the celebrity answer on beat with your trivia questions."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I export custom crops as JSON?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! Click \"Export JSON\" in the crop editor to copy pre-formatted crop coordinates suitable for adding directly into celebs.json."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Guess The Celeb?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Guess The Celeb is a free daily pop-culture crop puzzle game where players identify world-famous celebrities from tightly cropped photos of their hair, beard, nose, or eyes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I play Guess The Celeb?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Choose a mode (Hair, Beard, Nose, Eyes, or Daily Mix). Inspect the cropped photo, type your guess, and submit. You have 5 attempts per daily puzzle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the crop rules?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Crops are strictly isolated to make the game challenging. When guessing by Hair, eyebrows are hidden. For Beard, the nose is hidden. For Eyes, forehead and nose are hidden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many attempts do I get?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You get 5 attempts. After winning or giving up, the complete uncropped photo is revealed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I make my own crop game for TikTok or parties?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Use the Crop run mode to add custom photos, draw crop rectangles, and host hold-to-reveal games."
+          }
+        }
+      ]
     }
   ]
 }
@@ -153,7 +167,7 @@ h3{margin:16px 0 6px}
 .logo b{background:var(--sun);color:var(--ink);padding:0 .3em;border-radius:6px;margin:0 .1em}
 .pill{background:var(--sun);color:var(--ink);border:2px solid var(--ink);border-radius:99px;padding:3px 10px;font-weight:800;white-space:nowrap}
 .hero{padding:clamp(22px,5vw,48px) 0 18px}
-.hero h1{font-size:clamp(2rem,6.5vw,4rem);max-width:14ch}
+.hero h1, .hero h2.hero-title{font-size:clamp(2rem,6.5vw,4rem);max-width:14ch;margin:0;line-height:1.05;font-weight:800}
 .hero p{color:var(--mut);max-width:46ch;margin:10px 0 0}
 .grid{display:grid;gap:22px;grid-template-columns:minmax(0,1fr);align-items:start}
 @media(min-width:860px){.grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}}
@@ -228,12 +242,12 @@ details.faq-item .faq-ans{padding:0 18px 18px;color:var(--mut);line-height:1.6;b
 </div></header>
 
 <main class="wrap">
-<section id="daily" class="view">
+<section id="daily" class="view on">
 <nav aria-label="Breadcrumb" style="padding:10px 0 0;font-size:0.88rem">
   <a href="/" style="color:var(--blue);text-decoration:none;font-weight:700">Home</a> &rsaquo;
-  <span style="color:var(--mut)">Make a Custom Guess the Celebrity</span>
+  <span style="color:var(--mut)">Make your own crop run</span>
 </nav>
-<div class="hero"><h1 id="h1">Make a Custom Guess the Celebrity</h1><p id="hp">Add photos, crop them and play them one by one. Hold to reveal.</p></div>
+<div class="hero"><h1 id="h1">Make your own crop run</h1><p id="hp">Add photos, crop them and play them one by one. Hold to reveal.</p></div>
 <div class="grid"><div class="card">
 <canvas id="dc" width="720" height="720" aria-label="Cropped puzzle image"></canvas>
 <div class="dots" id="dots"></div>
@@ -322,8 +336,8 @@ details.faq-item .faq-ans{padding:0 18px 18px;color:var(--mut);line-height:1.6;b
 </div>
 </section>
 
-<section id="make" class="view on">
-<div class="hero"><h1>Make Custom Guess the Celebrity</h1><p>Add photos, crop the part you want to show, then play them one by one. Hold to reveal, let go to hide again.</p></div>
+<section id="make" class="view">
+<div class="hero"><h2 class="hero-title">Make a Custom Guess the Celebrity</h2><p>Add photos, crop the part you want to show, then play them one by one. Hold to reveal, let go to hide again.</p></div>
 <div class="grid"><div class="card">
 <label class="drop" id="drop">Drop photos here or tap to choose<br><span class="mut">JPG, PNG or WebP. Photos stay on your device.</span><input type="file" id="file" accept="image/*" multiple hidden></label>
 <div class="strip" id="strip"></div>
@@ -339,6 +353,7 @@ details.faq-item .faq-ans{padding:0 18px 18px;color:var(--mut);line-height:1.6;b
 </main>
 
 
+
 <footer>
   <div class="wrap" style="display:flex;flex-direction:column;gap:16px">
     <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;font-weight:700">
@@ -350,6 +365,7 @@ details.faq-item .faq-ans{padding:0 18px 18px;color:var(--mut);line-height:1.6;b
       <a href="/unlimited-guess-the-celebrity/" style="color:inherit;text-decoration:none">Unlimited</a>
       <a href="/custom-guess-the-celebrity/" style="color:inherit;text-decoration:none">Custom Game</a>
       <a href="/about/" style="color:inherit;text-decoration:none">About</a>
+      <a href="/credits/" style="color:inherit;text-decoration:none">Credits</a>
       <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a>
       <a href="/terms/" style="color:inherit;text-decoration:none">Terms</a>
       <a href="/contact/" style="color:inherit;text-decoration:none">Contact</a>
